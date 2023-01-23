@@ -1,21 +1,20 @@
 // TODO: Include packages needed for this application
 
 const fs = require('fs');
-var inquirer = require('inquirer');
+const inquirer = require('inquirer');
 
 
 // TODO: Create an array of questions for user input
 const questions = {
-  readmeTitle,
-  readmeDesc,
-  readmeInst,
-  readmeUsage,
-  readmeGuidelines,
-  readmeTest,
-  readmeLicense,
-  readmeUsername,
-  readmeEmail,
-
+  readmeTitle: "Enter your README's Title: ",
+  readmeDesc: "",
+  readmeInst: "",
+  readmeUsage: "",
+  readmeGuidelines: "",
+  readmeTest: "",
+  readmeLicense: "",
+  readmeUsername: "",
+  readmeEmail: ""
 
 };
 
@@ -23,7 +22,37 @@ const questions = {
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: 'questions.readmeTitle',
+        name: 'readmeTitle',
+      },
+      {
+        type: 'input',
+        message: 'Enter your README\'s Description:',
+        name: 'readmeDesc',
+      },
+      {
+        type: 'input',
+        message: 'Enter your README\'s installation instructions:',
+        name: 'readmeInst',
+      },
+    ])
+    .then((answers => {
+        console.info('title: ', answers.readmeTitle), 
+        console.info('description: ', answers.readmeDesc), 
+        console.info('instructions: ', answers.readmeInst)
+      })
+  );
+    
+    
+    
+
+}
 
 // Function call to initialize app
 init();
