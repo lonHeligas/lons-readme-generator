@@ -5,7 +5,7 @@ function renderLicenseBadge(license) {
 
   
   switch (license) {
-    case 'Apache 2.0':
+    case 'apacheLi':
       licenseIcon = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
       break;
     case 'gnuLi':
@@ -20,8 +20,8 @@ function renderLicenseBadge(license) {
     case null:
       licenseIcon = '';
   }
-  return licenseIcon;
-  
+  // console.log(`licenseIcon ${licenseIcon}`);
+  // return licenseIcon;  
 }
 
 // TODO: Create a function that returns the license link
@@ -47,7 +47,7 @@ function renderLicenseLink(license) {
     case null:
       licenseLink = '';
   }
-  return licenseLink;
+  // return licenseLink;
 }
 
 // TODO: Create a function that returns the license section of README
