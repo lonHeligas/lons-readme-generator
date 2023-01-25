@@ -107,15 +107,27 @@ const questions = [
           return true
         }
       },
+      {
+        type: 'input',
+        message: 'Enter your filename (Hint: it\'s usually "README"):',
+        name: 'readmeFilename',
+        validate: (response) => {
+          if (response === ''){
+            return 'I need your filename, please.'
+          }
+          return true
+        }
+      },
     ];
     
     
-
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  //fs.writeFile(filename, data, (err) =>)
+    
+    
+    
+    // TODO: Create a function to write README file
+    function writeToFile(fileName, answers) {
+      //fs.writeFile(filename, data, (err) =>)
+  writetofile(`./${fileName}.md`, generateMarkdown(answers));
 }
 
 // TODO: Create a function to initialize app
@@ -123,13 +135,13 @@ function init(){
   inquirer.prompt(questions).then(answers => {
     console.log(answers)
   })
+  writeToFile(answers.readmeFilename, answers);
 
 
 }
   
 
 
-    // writetofile(`./README.md`, generateMarkdown(answers)); ??
   
 
   

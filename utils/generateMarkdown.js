@@ -3,7 +3,7 @@
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
 
-  let licenseIcon;
+  
   switch (license) {
     case 'Apache 2.0':
       licenseIcon = '[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)';
@@ -59,7 +59,41 @@ function renderLicenseSection(license) {}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  renderLicenseBadge(data);
+  renderLicenseLink(data);
+  
   return `# ${data.title}
+  
+## Contents
+  
+- [License](#license)
+- [Description])(#description)
+- [Installation Instructions](#installation)
+- [Usage Information](#usage)
+- [Contribution Guidelines](#contribution)
+- [Test Instructions](#test)
+   
+
+## License
+${licenseIcon};
+
+${licenseLink};
+
+## Description
+        name: 'readmeDesc',
+${data.readmeDesc};
+## Installation Instructions
+
+${data.readmeInst};
+## Usage Information
+
+${data.readmeUsage};
+## Contribution Guidelines
+
+${data.readmeGuidelines};
+## Test Instructions
+
+${data.readmeTest};
 
 `;
 }
