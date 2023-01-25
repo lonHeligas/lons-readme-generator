@@ -78,12 +78,12 @@ const questions = [
         name: 'license',
         message: 'Choose your license for your applicaiton:',
         choices: [
-          {name: 'apacheLi', value: 'Apache 2.0'},          
-          {name: 'gnuLi', value: 'GNU GPL V3'},
-          {name: 'mitLi',value: 'The MIT License'},
-          {name: 'mozillaLi', value: ' Mozilla Public License 2.00'},
+          {name: 'Apache 2.0', value: 'Apache 2.0'},          
+          {name: 'GNU GPL V3', value: 'GNU GPL V3'},
+          {name: 'The MIT License',value: 'The MIT License'},
+          {name: 'Mozilla Public License 2.00', value: 'Mozilla Public License 2.00'},
         ],
-        default: 'mitLi'
+        //default: 'mitLi'
       },
       {
         type: 'input',
@@ -126,7 +126,10 @@ const questions = [
     
     // TODO: Create a function to write README file
     function writeToFile(fileName, answers) {
-      fs.writeFile(`./${fileName}.md`, generateMarkdown(answers), (err) => {
+      let filenameCaps = "";
+      filenameCaps = fileName.toUpperCase();
+      console.log(answers.license);
+      fs.writeFile(`./${filenameCaps}.md`, generateMarkdown(answers), (err) => {
           err ? console.log(err) : console.log("Success!");
             
         }
