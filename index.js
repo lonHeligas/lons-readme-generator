@@ -3,6 +3,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
+var validator = require("email-validator");
+
 
 
 // TODO: Create an array of questions for user input
@@ -72,7 +74,7 @@ const questions = [
           }
           return true
         }
-      },
+      },    
       {
         type: 'list',
         name: 'license',
@@ -87,7 +89,7 @@ const questions = [
       },
       {
         type: 'input',
-        message: 'Enter your GitHub username (URL only, no http://):',
+        message: 'Enter your GitHub username:',
         name: 'readmeUsername',
         validate: (response) => {
           if (response === ''){
@@ -102,57 +104,48 @@ const questions = [
         name: 'readmeEmail',
         validate: (response) => {
           if (response === ''){
-            return 'I need your email address please. (I promise I will send you no spam.)'
+            return 'I need a viable email address. (I promise I will send you no spam.)'
           }
           return true
-        }
+        } 
       },
       {
         type: 'input',
-        message: 'Enter your filename (Hint: it\'s usually "README"):',
+        message: 'Enter your filename (hit enter for default "README")',
         name: 'readmeFilename',
-        validate: (response) => {
-          if (response === ''){
-            return 'I need your filename, please.'
-          }
-          return true
-        }
+        // validate: (response) => {
+        //   if (response === ''){
+        //     questions.readmeFilename == "README";    
+        //     return true        
+        //   }
+        //   return true
+        // }
       },
     ];
     
     
-    
-    
-    
     // TODO: Create a function to write README file
     function writeToFile(fileName, answers) {
+      console.log(fileName)
+      if (fileName == undefined){
+        fileName = 'readme';
+      }
+      console.log(`This is fileName after: ${fileName}`);
       let filenameCaps = "";
       filenameCaps = fileName.toUpperCase();
       console.log(answers.license);
       fs.writeFile(`./${filenameCaps}.md`, generateMarkdown(answers), (err) => {
-          err ? console.log(err) : console.log("Success!");
-            
+          err ? console.log(err) : console.log("Success!");            
         }
-        )}
-        
-        
-
-
-        
-        
-        // fs.writeFile(filename, data, (err) => {
-        // }
-        // )};
+      )}        
         
 // TODO: Create a function to initialize app
 function init(){
   inquirer.prompt(questions).then(answers => {
     // console.log(answers)
+   
     writeToFile(answers.readmeFilename, answers);
   })
-
-
-
 }
   
 

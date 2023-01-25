@@ -74,6 +74,7 @@ function generateMarkdown(data) {
 - [Usage Information](#usage-information)
 - [Contribution Guidelines](#contribution-guidelines)
 - [Test Instructions](#test-instructions)
+- [Questions](#questions)
    
 
 ## License
@@ -96,6 +97,10 @@ ${data.readmeGuidelines};
 ## Test Instructions
 
 ${data.readmeTest};
+
+## Questions
+GitHub: [https://github.com${data.readmeUsername}]
+Email: 
 
 `;
 }
