@@ -138,7 +138,7 @@ const questions = [
       let filenameCaps = "";
       filenameCaps = fileName.toUpperCase();
       // console.log(answers.license);
-      fs.writeFile(`./${filenameCaps}.md`, generateMarkdown(answers), (err) => {
+      fs.writeFile(`./outgoing/${filenameCaps}.md`, generateMarkdown(answers), (err) => {
           err ? console.log(err) : console.log(`Your file ${filenameCaps}.md has successfully been created.`);            
         }
       )}        

@@ -84,22 +84,23 @@ ${licenseIcon}
 
 ## Description 
 
-${data.readmeDesc};
+${data.readmeDesc}
 ## Installation Instructions
 
-${data.readmeInst};
+${data.readmeInst}
 ## Usage Information
 
-${data.readmeUsage};
+${data.readmeUsage}
 ## Contribution Guidelines
 
-${data.readmeGuidelines};
+${data.readmeGuidelines}
 ## Test Instructions
 
-${data.readmeTest};
+${data.readmeTest}
 
 ## Questions
-GitHub: [https://github.com${data.readmeUsername}]
+GitHub: [https://github.com/${data.readmeUsername}]
+
 Contact me with any quesitons @
 [mailto:${data.readmeEmail}]
 
