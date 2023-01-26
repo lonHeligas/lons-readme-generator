@@ -31,7 +31,7 @@ function renderLicenseBadge(data) {
 
 // If there is no license, return an empty string
 function renderLicenseLink(data) {
-  console.log(`this is the license: ${data.license}`);  
+  // console.log(`this is the license: ${data.license}`);  
   switch (data.license) {    
     case 'Apache 2.0':
       licenseLink = 'https://choosealicense.com/licenses/apache-2.0/';
@@ -100,7 +100,8 @@ ${data.readmeTest};
 
 ## Questions
 GitHub: [https://github.com${data.readmeUsername}]
-Email: 
+Contact me with any quesitons @
+[mailto:${data.readmeEmail}]
 
 `;
 }

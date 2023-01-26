@@ -104,7 +104,7 @@ const questions = [
         name: 'readmeEmail',
         validate: (response) => {
           if (response === ''){
-            return 'I need a viable email address. (I promise I will send you no spam.)'
+            return 'I need an email address. (I promise I will send you no spam.)'
           }
           return true
         } 
@@ -126,16 +126,20 @@ const questions = [
     
     // TODO: Create a function to write README file
     function writeToFile(fileName, answers) {
-      console.log(fileName)
-      if (fileName == undefined){
-        fileName = 'readme';
+      // this sets the default filename to readme if it's undefined
+
+      // console.log("this is the filename", fileName)
+      if (!fileName){
+        // console.log("filename is undefined")
+        fileName = "readme";
       }
-      console.log(`This is fileName after: ${fileName}`);
+      // console.log(`This is fileName after: ${fileName}`);
+
       let filenameCaps = "";
       filenameCaps = fileName.toUpperCase();
-      console.log(answers.license);
+      // console.log(answers.license);
       fs.writeFile(`./${filenameCaps}.md`, generateMarkdown(answers), (err) => {
-          err ? console.log(err) : console.log("Success!");            
+          err ? console.log(err) : console.log(`Your file ${filenameCaps}.md has successfully been created.`);            
         }
       )}        
         
